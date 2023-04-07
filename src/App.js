@@ -22,7 +22,7 @@ function App() {
     // newSong:
     // {
     //    title: "Nantes"
-    //    album: "The Flying Fight Club"
+    //    album: "The Flying Club Cup"
     //    artist: "Beirut"
     //    genre: Indie Folk
     //    releaseDate: "11/09/2007"
@@ -34,8 +34,15 @@ function App() {
     // }
   
     function handleSearch(query) {
-
+      const filteredData = songs.filter((song) => {
+        return (song.title.toLowerCase().includes(query.toLowerCase()))
+      }
+        
+    
+      );
+      setSongs(filteredData)
     }
+
 
   return (
     <div>
