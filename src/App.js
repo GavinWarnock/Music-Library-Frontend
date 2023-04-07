@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import NavBar from './Components/NavigationBar/NavigationBar';
 import MusicTable from './Components/MusicTable/MusicTable';
 import axios from 'axios';
-
+import SearchBar from './Components/SearchBar/SearchBar';
 
 function App() {
 
@@ -14,7 +14,8 @@ function App() {
 
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:5000/api/songs');
-    setSongs(response.data)
+    setSongs(response.data.songs)
+    console.log(response.data.songs)
   }
   
   async function createSong(newSong) {
@@ -32,10 +33,16 @@ function App() {
         await getAllSongs();    }
     }
   
+    function handleSearch(query) {
+
+    }
 
   return (
     <div>
       <NavBar />
+      <div>
+        <SearchBar onSearch={handleSearch} />
+      </div>
       <div>
         <MusicTable />
         </div>
