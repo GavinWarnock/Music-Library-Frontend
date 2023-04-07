@@ -18,7 +18,7 @@ function App() {
     console.log(response.data.songs)
   }
   
-  async function createSong(newSong) {
+  // async function createSong(newSong) {
     // newSong:
     // {
     //    title: "Nantes"
@@ -28,10 +28,10 @@ function App() {
     //    releaseDate: "11/09/2007"
     //    runningTime:  230
     // }
-    let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
-    if (response.status === 201){
-        await getAllSongs();    }
-    }
+    // let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
+    // if (response.status === 201){
+    //     await getAllSongs();    }
+    // }
   
     function handleSearch(query) {
 
@@ -44,7 +44,7 @@ function App() {
         <SearchBar onSearch={handleSearch} />
       </div>
       <div>
-        <MusicTable />
+        <MusicTable songs={songs} />
         </div>
     </div>
   );
