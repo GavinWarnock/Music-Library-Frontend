@@ -1,20 +1,20 @@
 import './MusicTable.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MusicTable = (props) => {
     const {songs} = props;
     return (
-        <div className='table'>
-        <table>
+        <div>
+        <table className='table'>
             <thead>
-            <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Release Date</th>
-                <th>Genre</th>
-                <th>Running Time</th>
-            </tr>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Release Date</th>
+                    <th>Genre</th>
+                    <th>Running Time</th>
+                </tr>
             </thead>
             <tbody>
             {songs && songs.map((song) => (

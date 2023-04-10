@@ -3,6 +3,7 @@ import NavBar from './Components/NavigationBar/NavigationBar';
 import MusicTable from './Components/MusicTable/MusicTable';
 import axios from 'axios';
 import SearchBar from './Components/SearchBar/SearchBar';
+import AddNewSong from './Components/NewSong/NewSong';
 
 function App() {
 
@@ -18,20 +19,12 @@ function App() {
     console.log(response.data.songs)
   }
   
-  // async function createSong(newSong) {
-  //   newSong:
-  //   {
-  //      title: "Nantes"
-  //      album: "The Flying Club Cup"
-  //      artist: "Beirut"
-  //      genre: Indie Folk
-  //      releaseDate: "11/09/2007"
-  //      runningTime:  230
-  //   }
-  //   let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
-  //   if (response.status === 201){
-  //       await getAllSongs();    }
-  //   }
+  async function createSong(newSong) {
+    let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
+    if (response.status === 201){
+        await getAllSongs();    }
+        console.log(createSong)
+    }
   
     function handleSearch(query) {
       const filteredData = songs.filter((song) => {
@@ -53,6 +46,9 @@ function App() {
       </div>
       <div>
         <MusicTable songs={songs} />
+        </div>
+        <div>
+          <AddNewSong createSong={createSong} />
         </div>
     </div>
   );
