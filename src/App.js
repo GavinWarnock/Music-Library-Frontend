@@ -19,23 +19,24 @@ function App() {
   }
   
   // async function createSong(newSong) {
-    // newSong:
-    // {
-    //    title: "Nantes"
-    //    album: "The Flying Club Cup"
-    //    artist: "Beirut"
-    //    genre: Indie Folk
-    //    releaseDate: "11/09/2007"
-    //    runningTime:  230
-    // }
-    // let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
-    // if (response.status === 201){
-    //     await getAllSongs();    }
-    // }
+  //   newSong:
+  //   {
+  //      title: "Nantes"
+  //      album: "The Flying Club Cup"
+  //      artist: "Beirut"
+  //      genre: Indie Folk
+  //      releaseDate: "11/09/2007"
+  //      runningTime:  230
+  //   }
+  //   let response = await axios.post('http://127.0.0.1:5000/api/songs', newSong)
+  //   if (response.status === 201){
+  //       await getAllSongs();    }
+  //   }
   
     function handleSearch(query) {
       const filteredData = songs.filter((song) => {
-        return (song.title.toLowerCase().includes(query.toLowerCase()))
+        return (song.title.toLowerCase().includes(query.toLowerCase()) || song.artist.toLowerCase().includes(query.toLowerCase()) || song.album.toLowerCase().includes(query.toLowerCase()) || song.release_date.toLowerCase().includes(query.toLowerCase()) || song.genre.toLowerCase().includes(query.toLowerCase()))
+        
       }
         
     

@@ -1,10 +1,13 @@
+import './MusicTable.css';
+
+
 const MusicTable = (props) => {
     const {songs} = props;
     return (
+        <div className='table'>
         <table>
             <thead>
             <tr>
-                <th>id</th>
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Album</th>
@@ -26,6 +29,7 @@ const MusicTable = (props) => {
             ))}
             </tbody>
         </table>
+        </div>
     )
 }
 
