@@ -25,6 +25,14 @@ function App() {
         await getAllSongs();    }
         console.log(createSong)
     }
+
+  async function deleteSong(id) {
+    try {
+      await axios.delete('http://127.0.0.1:5000/api/songs/${id}');
+      await getAllSongs();
+    } catch (error) {
+    }
+  }
   
     function handleSearch(query) {
       const filteredData = songs.filter((song) => {
@@ -48,8 +56,9 @@ function App() {
         <MusicTable songs={songs} />
         </div>
         <div>
-          <AddNewSong createSong={createSong} />
+          <AddNewSong createSong={createSong} deleteSong={deleteSong} />
         </div>
+        <div></div>
     </div>
   );
   }
