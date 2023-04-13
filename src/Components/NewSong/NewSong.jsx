@@ -25,7 +25,7 @@ const AddNewSong = ({createSong}) => {
     }
     async function handleDeleteSong(event) {
         const id = prompt("Please enter ID of song you wish to be deleted");
-        await axios.delete("http://127.0.0.1:5000/api/songs/${id}");
+        await axios.delete(`http://127.0.0.1:5000/api/songs/${id}`);
     }
 
 

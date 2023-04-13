@@ -14,7 +14,7 @@ function SearchBar(props) {
 
     return (
         <form onSubmit={handleSearchSubmit}>
-            <input type='text' value={searchQuery} onChange={handleSearchQueryChange} />
+            <input type='text' name="search" value={searchQuery} onChange={handleSearchQueryChange} />
             <button type='submit'>Search</button>
         </form>
 
