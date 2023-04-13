@@ -12,11 +12,8 @@ describe('Music Library', () => {
     cy.get("[name=search]").type("Sweetness")
     cy.get("button").contains("Search").click().wait(2000)
     cy.get("[data-cy=title]").contains("Sweetness").invoke("text").should("equals","Sweetness")
+    cy.window().then(win => {cy.stub(win, "prompt").returns("12") })
     cy.get("button").contains("Delete").click()
-      cy.window().then(win=> {
-        cy.stub(win, "prompt").returns("11")
-        cy.get("#prompt-button").click()
-      })
-    
+    cy.reload()
   })
 })
